@@ -30,43 +30,43 @@ The system combines:
 
 The experiment uses the **same Random Forest model, temporal split, and training rows**; only the feature set changes.
 
-![Model Comparison](docs/figures/model_comparison.png)
+![Model Comparison](figures/model_comparison.png)
 
 The graph-enhanced model improves ROC-AUC from **0.801 → 0.862** and Ring Recall@10% from **0.281 → 0.909**.
 
 ## Architecture
 
-![Architecture](docs/figures/architecture.png)
+![Architecture](figures/architecture.png)
 
 Transactions are transformed into behavioral and graph-derived features. Model risk, behavioral risk, and network risk are combined for alert prioritization, followed by case consolidation and deterministic evidence retrieval. The LLM is used only to **narrate retrieved evidence**, not generate investigation facts.
 
 ## Graph Intelligence
 
-![Graph Investigation](docs/figures/graph_visualization.png)
+![Graph Investigation](figures/graph_visualization.png)
 
 The entity graph connects **customers, devices, and merchants**, enabling features such as shared customers, customer degree, device historical fraud rate, and merchant-level fraud signals.
 
-![Feature Importance](docs/figures/feature_importance.png)
+![Feature Importance](figures/feature_importance.png)
 
 Graph-derived features account for approximately **40% of model feature importance** in the graph-enhanced model.
 
 ## Investigation Workflow
 
-![Interactive Investigation](docs/screenshots/graph_investigation.png)
+![Interactive Investigation](screenshots/graph_investigation.png)
 
 Alerts are consolidated into investigation cases around shared entities. Each case provides network context, transaction evidence, risk signals, and financial exposure.
 
-![Case Evidence](docs/screenshots/case_evidence.png)
+![Case Evidence](screenshots/case_evidence.png)
 
 Evidence is retrieved deterministically before generating the investigation brief, keeping the LLM constrained to known facts.
 
-![Investigation Brief](docs/screenshots/llm_investigation_brief.png)
+![Investigation Brief](screenshots/llm_investigation_brief.png)
 
 ## Adversarial Robustness
 
 The graph layer was evaluated against controlled perturbations designed to weaken behavioral and graph signals, including lower transaction amounts, slower activity, reduced customer sharing, merchant diversification, and device variation.
 
-![Adversarial Robustness](docs/figures/adversarial_robustness.png)
+![Adversarial Robustness](figures/adversarial_robustness.png)
 
 ## Technology
 
