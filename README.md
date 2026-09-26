@@ -1,8 +1,10 @@
 # Financial Transaction Intelligence Platform
 
-An end-to-end financial transaction intelligence and fraud investigation platform combining **behavioral machine learning, graph-based risk analysis, alert prioritization, and evidence-grounded investigation workflows**.
+An end-to-end financial transaction intelligence and fraud investigation platform combining **behavioral machine learning, graph-based risk analysis, alert prioritization, case consolidation, and evidence-grounded investigation**.
 
-The project investigates a central question: **can transaction-network structure identify coordinated fraud that conventional behavioral features cannot see?**
+The project investigates a central question:
+
+> **Can transaction-network structure identify coordinated fraud that conventional behavioral features cannot see?**
 
 ![Investigation Dashboard](screenshots/dashboard.png)
 
@@ -10,16 +12,16 @@ The project investigates a central question: **can transaction-network structure
 
 ## Overview
 
-Traditional fraud models evaluate transactions largely as independent events. Coordinated fraud can evade this approach when individual transactions appear ordinary but multiple customers are connected through shared devices, merchants, or other entities.
+Traditional fraud detection evaluates transactions primarily as individual events. Coordinated fraud can evade this approach when individual transactions appear normal, while multiple customers are connected through shared devices or merchants.
 
-This platform adds an **entity graph layer** to conventional transaction-level fraud detection, allowing the system to capture structural relationships between:
+This platform adds an **entity-graph intelligence layer** to transaction-level fraud detection, connecting:
 
 - Customers
 - Devices
 - Merchants
 - Transactions
 
-The resulting system combines **fraud prediction, network intelligence, ring detection, alert scoring, case consolidation, and analyst-oriented investigation**.
+The system combines these relationships with behavioral and historical transaction features to generate fraud-risk scores, identify coordinated fraud rings, prioritize alerts, and consolidate related alerts into investigation cases.
 
 ---
 
@@ -30,22 +32,29 @@ The resulting system combines **fraud prediction, network intelligence, ring det
 | Transactions processed | **31,449** |
 | Graph nodes | **972** |
 | Graph edges | **17,765** |
-| Fraud alerts | **944** |
+| Fraud alerts generated | **944** |
 | Investigation cases | **34** |
 | Seeded fraud rings recovered | **12 / 12** |
 | Alert precision | **64.8%** |
+| Baseline ROC-AUC | **0.8010** |
 | Graph-enhanced ROC-AUC | **0.8618** |
+| Baseline PR-AUC | **0.4369** |
 | Graph-enhanced PR-AUC | **0.5512** |
-| Ring Recall @ Top 10% | **0.9093** |
+| Baseline Ring Recall @ 10% | **0.2808** |
+| Graph Ring Recall @ 10% | **0.9093** |
 
 The graph-enhanced model improved:
 
-- ROC-AUC from **0.8010 → 0.8618**
-- PR-AUC from **0.4369 → 0.5512**
-- Recall@10% from **0.3206 → 0.4429**
-- Ring Recall@10% from **0.2808 → 0.9093**
+- **ROC-AUC:** 0.8010 → 0.8618
+- **PR-AUC:** 0.4369 → 0.5512
+- **Recall @ Top 10%:** 0.3206 → 0.4429
+- **Ring Recall @ Top 10%:** 0.2808 → 0.9093
 
-The same model, temporal split, and training rows were used for the baseline and graph-enhanced experiments; the primary change was the feature set.
+The baseline and graph-enhanced models use the **same Random Forest architecture, temporal split, and training rows**. The primary experimental change is the addition of graph-derived features.
+
+![Model Comparison](figures/model_comparison.png)
+
+---
 
 ## Architecture
 
