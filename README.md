@@ -1,2 +1,57 @@
-# financial-transaction-intelligence
-> End-to-end financial transaction intelligence platform combining ETL, fraud-risk modeling, graph-based fraud-ring detection, alert and case investigation, adversarial robustness testing, and LLM-powered natural-language-to-SQL analytics.
+# Financial Transaction Risk & Intelligence Platform
+
+An end-to-end financial data pipeline combining SQL-based warehousing, machine learning fraud-risk scoring, and Gemini-powered natural-language analytics.
+
+## Key Results
+
+- Processed **15,000 transactions** across 200 customers and 40 merchants.
+- Engineered **9 fraud-risk features** for transaction-level risk assessment.
+- Achieved **0.821 ROC-AUC** with a Random Forest classifier.
+- Generated **2,093 high-risk alerts**.
+- Enabled natural-language analytics through read-only SQL validation.
+
+## Architecture
+
+```text
+Synthetic Data → Raw Zone → Validation → SQLite Warehouse
+                                           |
+                                    Star Schema
+                                           |
+                                   Feature Engineering
+                                           |
+                                    Random Forest
+                                           |
+                                     Risk Alerts
+
+Natural Language → Gemini → SQL Validation → SQLite
+                                           |
+                                   Results & Explanation
+```
+
+## Tech Stack
+
+Python · Pandas · NumPy · SQL · SQLite · scikit-learn · Google Gemini · Matplotlib
+
+## Core Components
+
+- **ETL & Data Quality:** CSV ingestion, validation checks, and structured SQL transformations.
+- **Dimensional Modeling:** Star schema with customer, merchant, date, and transaction fact tables.
+- **Fraud Detection:** Nine engineered features and a Random Forest classifier for transaction-risk scoring.
+- **Natural-Language Analytics:** Gemini generates SQL from plain-English questions; validated queries execute against the SQLite warehouse.
+- **Monitoring & Visualization:** Pipeline logging, risk-score distributions, fraud-rate analysis, and transaction-volume charts.
+
+## Example Analytics
+
+- Which merchant categories have the highest fraud rates?
+- What is the total transaction value by country?
+- How many high-risk alerts involve new accounts and foreign transactions
+
+
+## Limitations
+
+The dataset and fraud labels are synthetic. Model metrics demonstrate performance on the generated dataset, not validated real-world fraud detection. Gemini analytics requires API access, and the SQL safety checks are intended for demonstration rather than production deployment.
+
+## Project Details
+
+- **Domain:** Financial Analytics, Data Engineering, Fraud Detection
+- **Period:** August 2026 – September 2026
